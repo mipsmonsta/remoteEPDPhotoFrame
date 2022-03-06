@@ -44,14 +44,14 @@ func hookProcessReceivedFile(filePath string){
 		Config: epd_config.EpdConfig{},
 	}
 
-	e.Setup()
+	e.Setup_4Gray()
 	e.Clear()
 	img, err := imageutil.OpenImage(filePath)
 	if err != nil {
 		panic(fmt.Sprintf("Wrong filetype %w\n", err))
 	}
 
-	e.Display(&img, epd.MODE_MONO_DITHER_ON)
+	e.Display_4Gray(&img)
 
 	e.Sleep()
 }

@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"path/filepath"
 
 	"github.com/mipsmonsta/chunky/util"
 	"github.com/mipsmonsta/epd"
@@ -51,6 +52,7 @@ func hookProcessReceivedFile(filePath string){
 		panic(fmt.Sprintf("Wrong filetype %w\n", err))
 	}
 
+	log.Printf("Display image: %s\n", filepath.Base(filePath))
 	e.Display_4Gray(&img)
 
 	e.Sleep()
